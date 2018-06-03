@@ -1,9 +1,11 @@
-#include "Student.h"
+#include <iostream>
 using namespace std;
 
-class Course : public Student{
+class Course{
    protected:
-      string course;
+      string cpp;
+      string java;
+      string math;
    public:
-      Course(string, string, int, int);
+      void init(string, string, string);
 };
