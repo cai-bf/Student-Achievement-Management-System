@@ -5,6 +5,7 @@
 #include "Add.h"
 #include "Delete.h"
 #include "Revise.h"
+#include "Query.h"
 using namespace std;
 
 class Student : public Course{
@@ -15,12 +16,15 @@ class Student : public Course{
       string name;
       string id;
       string score;
+
    public:
       void stumsg(string, string, string, string, string, string);
       void sorting(string);
       void addMsg();
       void deleteMSg();
-      void reviseMsg(StudentMsg*, StudentMsg*);
+      void reviseMsg();
+      void queryMsg();
+      void display(StudentMsg*);
       Student();
       ~Student();
 };
