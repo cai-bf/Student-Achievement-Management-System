@@ -6,6 +6,7 @@
 #include"../header/Msg.h"
 using namespace std;
 
+// 获取成员值，以实现多样化查询
 string StudentMsg::value(int type){
     string temp;
     switch(type){

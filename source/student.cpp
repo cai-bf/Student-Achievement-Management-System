@@ -6,6 +6,7 @@
 #include <iomanip>
 using namespace std;
 
+// 设置学生数据
 void Student::stumsg(string aname, string aid, int cpp, int java, int math)
 {
 
@@ -24,7 +25,6 @@ void Student::stumsg(string aname, string aid, int cpp, int java, int math)
 
 Student::Student(){
     msg = nullptr;
-    sortedMsg = nullptr;
     temp = nullptr;
     initMsg();
 //    msg = Sort::sorted(msg, "total");
@@ -35,8 +35,10 @@ Student::~Student(){
 
 }
 
+// 保存文件
 void Student::save(){
     if(msg->name != ""){
+        // 保存前对原来文件进行备份
         system("cp ../score.txt  ../score.txt.bak");
         try{
             file.open("../score.txt", ios::in|ios::out|ios::trunc);
@@ -53,6 +55,7 @@ void Student::save(){
     }
 }
 
+// 初始化
 void Student::initMsg(){
     msg = new StudentMsg;
     msg->previous = NULL;
@@ -61,6 +64,7 @@ void Student::initMsg(){
     StudentMsg *p=msg, *q=p;
 
     try{
+        // 读取文件，创建记录链表
         file.open("../score.txt", ios::in|ios::out);
         while(!file.eof()){
             file >> p->name >> p->id >> p->cpp >> p->java >> p->math >> p->total;
@@ -70,9 +74,11 @@ void Student::initMsg(){
             p = q;
         }
         file.close();
+        // 删除新建的空结点
         p = p->previous;
         p->next = NULL;
         delete q;
+        // 删除读取文件末尾时多出来的空结点
         if(msg->name != ""){
             p = p->previous;
             delete p->next;
@@ -85,6 +91,7 @@ void Student::initMsg(){
     }
 }
 
+// 调用排序方法
 void Student::sorting(string type, bool isreverse){
     string ty = type;
     msg = Sort::sorted(msg, ty, isreverse);
@@ -95,6 +102,7 @@ void Student::sorting(string type, bool isreverse){
         display();
 }
 
+// 调用增加记录方法
 void Student::addMsg(){
     StudentMsg *tem = Add::addMsg(msg, temp);
     if(tem == NULL){
@@ -110,6 +118,7 @@ void Student::addMsg(){
     }
 }
 
+// 调用删除记录方法
 void Student::deleteMSg(string aid){
     StudentMsg* tem = Delete::deleteMsg(msg, aid);
     if(tem == NULL)
@@ -120,6 +129,7 @@ void Student::deleteMSg(string aid){
     }
 }
 
+// 调用修改记录方法
 void Student::reviseMsg(){
     StudentMsg *tem = Revise::reviseMsg(msg, temp);
     if(tem == NULL){
@@ -137,6 +147,7 @@ void Student::reviseMsg(){
     }
 }
 
+// 调用查询记录方法
 void Student::queryMsg(string type, string content){
 
     StudentMsg *feedback = Query::queryMsg(msg, type, content);
@@ -147,17 +158,22 @@ void Student::queryMsg(string type, string content){
         display(feedback);
 }
 
+// 展示记录
 void Student::display(StudentMsg *ms){
-    cout << setw(6) << "name" << setw(6) << "id" << setw(6) << "cpp" << setw(6) << "java"<< setw(6) << "math" << setw(6) << "total" << endl;
+    cout << setw(6) << "name" << setw(6) << "id" << setw(6) << "cpp" << setw(6) << "java"<< setw(6)
+        << "math" << setw(6) << "total" << endl;
     if(ms == NULL){
         ms = msg;
     }
     StudentMsg* t = ms;
     for(; t != NULL; t = t->next){
-        cout << setw(6) << t->name << setw(6) << t->id << setw(6) << t->cpp << setw(6) << t->java << setw(6) << t->math << setw(6) << t->total << endl;
+        cout<< std::right << setw(6) << t->name << setw(6) << t->id << setw(6) << t->cpp << setw(6)
+           << t->java << setw(6) << t->math << setw(6) << t->total << endl;
     }
 }
 
+// 调用合并文件方法
 void Student::merge(string paths){
     Merge::mergeMsg(msg, paths);
 }
+

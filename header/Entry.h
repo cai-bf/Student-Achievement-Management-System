@@ -5,7 +5,7 @@
 #ifndef CPPWORK_ENTRY_H
 #define CPPWORK_ENTRY_H
 #include "Student.h"
-
+// 渲染界面
 class Entry{
 private:
     Student student;

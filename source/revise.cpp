@@ -4,6 +4,7 @@
 
 #include "../header/Revise.h"
 
+// 修改记录，以学号为依据
 StudentMsg* Revise::reviseMsg(StudentMsg *msg, StudentMsg *rev){
     StudentMsg *p = msg;
     for(; p != NULL; p = p->next){
@@ -16,7 +17,8 @@ StudentMsg* Revise::reviseMsg(StudentMsg *msg, StudentMsg *rev){
             return msg;
         }
     }
-
+   
+    // 查询不到则返回NULL
     p = NULL;
     return p;
 }

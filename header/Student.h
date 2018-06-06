@@ -2,6 +2,7 @@
 // Created by cbf on 18-6-5.
 //
 
+// 主类，调用各个功能类
 #ifndef CPPWORK_STUDENT_H
 #define CPPWORK_STUDENT_H
 #include <string>
@@ -18,7 +19,7 @@ using namespace std;
 
 class Student : public Course{
 private:
-    StudentMsg *msg, *sortedMsg, *temp;
+    StudentMsg *msg,  *temp;
     fstream file;
     void initMsg();
     void save();

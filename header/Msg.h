@@ -1,7 +1,7 @@
 //
 // Created by cbf on 18-6-5.
 //
-
+// struct结构
 #ifndef CPPWORK_MSG_H
 #define CPPWORK_MSG_H
 #include <iostream>

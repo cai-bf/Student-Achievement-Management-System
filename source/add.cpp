@@ -5,6 +5,7 @@
 #include "../header/Add.h"
 #include <string>
 
+// 检查是否已存在该学号
 bool Add::check(StudentMsg *msg, StudentMsg* add){
     if(msg->name == "")
         return true;
@@ -15,12 +16,15 @@ bool Add::check(StudentMsg *msg, StudentMsg* add){
     return true;
 }
 
+// 添加记录
 StudentMsg* Add::addMsg(StudentMsg* msg, StudentMsg* add){
+    // 若存在则返回NULL 
     if(!check(msg, add)){
         StudentMsg *has = NULL;
         return has;
     }
     StudentMsg *p=msg, *q= nullptr;
+    // 尚未有记录的情况,即添加的记录为head结点
     if(p->name == ""){
         msg->name = add->name;
         msg->id = add->id;
@@ -49,17 +53,19 @@ StudentMsg* Add::addMsg(StudentMsg* msg, StudentMsg* add){
     //p->next = add;
     //add->previous = p;
     /*add->next = NULL;*/
-   for(;p->next != NULL; p = p->next);
-   p->next = new StudentMsg;
-   q = p->next;
-   q->previous = p;
-   p = p->next;
-   p->next = NULL;
-   p->name = add->name;
-   p->id = add->id;
-   p->cpp = add->cpp;
-   p->java = add->java;
-   p->math = add->math;
-   p->total = add->total;
-   return msg;
+    
+    // 已有记录的情况
+    for(;p->next != NULL; p = p->next);
+    p->next = new StudentMsg;
+    q = p->next;
+    q->previous = p;
+    p = p->next;
+    p->next = NULL;
+    p->name = add->name;
+    p->id = add->id;
+    p->cpp = add->cpp;
+    p->java = add->java;
+    p->math = add->math;
+    p->total = add->total;
+    return msg;
 }

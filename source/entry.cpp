@@ -4,6 +4,7 @@
 
 #include "../header/Entry.h"
 
+// 首页
 void Entry::firstPage(){
     system("clear");
     cout << "请输入对应的选项序号" << endl;
@@ -21,6 +22,7 @@ void Entry::firstPage(){
     else ;
 }
 
+// 总分榜页面
 void Entry::lookAll(){
     system("clear");
     student.sorting("total");
@@ -31,12 +33,13 @@ void Entry::lookAll(){
         firstPage();
 }
 
+// 排序页面
 void Entry::sorting(){
     system("clear");
-    cout << "输入要排序的关键词(name, id, cpp, java, math)" << endl;
+    cout << "输入要排序的关键词(name, id, cpp, java, math, total)" << endl;
     string type;
     cin >> type;
-    while(type != "name" && type != "id" && type != "cpp" && type != "java" && type != "math"){
+    while(type != "name" && type != "id" && type != "cpp" && type != "java" && type != "math" && type != "total"){
         cout << "输入错误，请重新输入" << endl;
         cin >> type;
     }
@@ -54,6 +57,7 @@ void Entry::sorting(){
         sorting();
 }
 
+// 增加记录页面
 void Entry::add(){
     string aname, aid;
     int acpp, ajava, amath, n;
@@ -70,6 +74,7 @@ void Entry::add(){
         add();
 }
 
+// 删除记录页面
 void Entry::del(){
     system("clear");
     string aid;
@@ -85,6 +90,7 @@ void Entry::del(){
         del();
 }
 
+// 修改记录页面
 void Entry::revise(){
     system("clear");
     cout << "请输入姓名,学号,cpp,java,math" << endl;
@@ -101,6 +107,7 @@ void Entry::revise(){
         revise();
 }
 
+// 查询记录页面
 void Entry::searchs(){
     system("clear");
     string type, content;
@@ -123,7 +130,9 @@ void Entry::searchs(){
         searchs();
 }
 
+// 合并文件界面
 void Entry::merges(){
+    system("clear");
     string paths;
     int n;
     cout << "输入要合并的文件路径" << endl;
@@ -137,6 +146,7 @@ void Entry::merges(){
         merges();
 }
 
+// 初始化首页
 Entry::Entry(){
     firstPage();
 }

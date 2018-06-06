@@ -1,7 +1,7 @@
 //
 // Created by cbf on 18-6-5.
 //
-
+// 查询记录
 #ifndef CPPWORK_QUERY_H
 #define CPPWORK_QUERY_H
 #include "Msg.h"

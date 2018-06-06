@@ -4,6 +4,7 @@
 
 #include "../header/Merge.h"
 #include <fstream>
+// 合并文件
 
 StudentMsg* Merge::mergeMsg(StudentMsg* msg, string paths){
     fstream reads;
@@ -29,18 +30,17 @@ StudentMsg* Merge::mergeMsg(StudentMsg* msg, string paths){
             t = tem;
         }
         reads.close();
+        // 删除最后的新建空结点
         t = t->previous;
         t->next = NULL;
         delete tem;
-//        if (t->name.empty()){
-//            t = t->previous;
-//            delete t->next;
-//            t->next = NULL;
-//        }
+   
+        // 删除读取文件末尾产生的重复结点
         t = t->previous;
         delete t->next;
         t->next = NULL;
-
+   
+        // 合并链表
         if(merg->name != ""){
             if(msg->name == ""){
                 msg = merg;

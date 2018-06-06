@@ -7,10 +7,12 @@
 
 StudentMsg* Query::queryMsg(StudentMsg *msg, string type, string content){
     StudentMsg *p = msg, *getMsg=new StudentMsg, *r=getMsg;
+    // 初始化查询结果链表
     getMsg->previous = NULL;
     getMsg->next = NULL;
     getMsg->name = "";
-
+   
+    // 初始化键值对
     map<string, int> getType;
     getType.insert(pair<string, int>("name", 1));
     getType.insert(pair<string, int>("id", 2));
@@ -18,7 +20,8 @@ StudentMsg* Query::queryMsg(StudentMsg *msg, string type, string content){
     getType.insert(pair<string, int>("java", 4));
     getType.insert(pair<string, int>("math", 5));
     getType.insert(pair<string, int>("total", 6));
-
+   
+    // 迭代查询
     for(; p != NULL; p = p->next){
         if(p->value(getType[type]) == content){
             r->name = p->name;
@@ -34,6 +37,7 @@ StudentMsg* Query::queryMsg(StudentMsg *msg, string type, string content){
             r->next = NULL;
         }
     }
+    // 删除新建的空结点
     if(getMsg->next != NULL){
         r = r->previous;
         delete r->next;
