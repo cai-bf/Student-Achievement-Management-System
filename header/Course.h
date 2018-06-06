@@ -1,11 +1,21 @@
+//
+// Created by cbf on 18-6-5.
+//
+
+#ifndef CPPWORK_COURSE_H
+#define CPPWORK_COURSE_H
+
 #include <iostream>
-using namespace std;
+ using namespace std;
 
 class Course{
-   protected:
-      string cpp;
-      string java;
-      string math;
-   public:
-      void init(string, string, string);
+    protected:
+        int cpp;
+        int java;
+        int math;
+        public:
+        void init(int, int, int);
 };
+
+
+#endif //CPPWORK_COURSE_H
