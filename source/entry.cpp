@@ -25,7 +25,7 @@ void Entry::firstPage(){
 // 总分榜页面
 void Entry::lookAll(){
     system("clear");
-    student.sorting("total");
+    admin.sorting("total");
     cout << "\t 1.返回主页      2.退出" << endl;
     int n;
     cin >> n;
@@ -47,7 +47,7 @@ void Entry::sorting(){
     int i;
     cin >> i;
     bool isreverse = (i==2?true:false);
-    student.sorting(type, isreverse);
+    admin.sorting(type, isreverse);
     cout << "\t 1.返回主页        2.查看其他排序        3.退出" << endl;
     int n;
     cin >> n;
@@ -64,8 +64,8 @@ void Entry::add(){
     system("clear");
     cout << "请输入姓名, 学号, cpp, java, math" << endl;
     cin >> aname >> aid >> acpp >> ajava >> amath;
-    student.stumsg(aname, aid, acpp, ajava, amath);
-    student.addMsg();
+    admin.stumsg(aname, aid, acpp, ajava, amath);
+    admin.addMsg();
     cout << "\t 1.返回主页        2.继续添加        3.退出" << endl;
     cin >> n;
     if(n==1)
@@ -80,7 +80,7 @@ void Entry::del(){
     string aid;
     cout << "输入想要删除的信息对应的学号" << endl;
     cin >> aid;
-    student.deleteMSg(aid);
+    admin.deleteMSg(aid);
     cout << "\t 1.返回主页        2.继续删除        3.退出" << endl;
     int n;
     cin >> n;
@@ -97,8 +97,8 @@ void Entry::revise(){
     string aname, aid;
     int acpp, ajava, amath, n;
     cin >> aname >> aid >> acpp >> ajava >> amath;
-    student.stumsg(aname, aid, acpp, ajava, amath);
-    student.reviseMsg();
+    admin.stumsg(aname, aid, acpp, ajava, amath);
+    admin.reviseMsg();
     cout << "\t 1.返回主页        2.继续修改        3.退出" << endl;
     cin >> n;
     if(n==1)
@@ -120,7 +120,7 @@ void Entry::searchs(){
     cout << "输入查询内容" << endl;
     cin >> content;
 
-    student.queryMsg(type, content);
+    admin.queryMsg(type, content);
     int n;
     cout << "\t 1.返回主页        2.继续查询        3.退出" << endl;
     cin >> n;
@@ -137,7 +137,7 @@ void Entry::merges(){
     int n;
     cout << "输入要合并的文件路径" << endl;
     cin >> paths;
-    student.merge(paths);
+    admin.merge(paths);
     cout << "\t 1.返回主页        2.继续合并        3.退出" << endl;
     cin >> n;
     if (n==1)
