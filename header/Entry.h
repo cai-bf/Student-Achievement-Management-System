@@ -4,11 +4,11 @@
 
 #ifndef CPPWORK_ENTRY_H
 #define CPPWORK_ENTRY_H
-#include "Student.h"
+#include "Admin.h"
 // 渲染界面
 class Entry{
 private:
-    Student student;
+    Admin admin;
 public:
     void firstPage();
     void lookAll();

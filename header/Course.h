@@ -14,7 +14,7 @@ class Course{
         int java;
         int math;
         public:
-        void init(int, int, int);
+        void initCourse(int, int, int);
 };
 
 
