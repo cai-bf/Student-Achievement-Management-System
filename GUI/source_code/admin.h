@@ -31,7 +31,7 @@ public:
     void reviseMsg(QWidget *);
     StudentMsg* queryMsg(string, string, string, QWidget*);
     void display(StudentMsg* ms=NULL);
-    void merge(string);
+    void merge(string, QWidget*);
     Admin();
     ~Admin();
 };

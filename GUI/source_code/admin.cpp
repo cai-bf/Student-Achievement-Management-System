@@ -152,8 +152,8 @@ StudentMsg* Admin::queryMsg(string type, string content,string com, QWidget *par
 }
 
 // 调用合并文件方法
-void Admin::merge(string paths){
-    Merge::mergeMsg(msg, paths);
+void Admin::merge(string paths, QWidget* parent){
+    Merge::mergeMsg(msg, paths, parent);
     sorting("total");
 }
 

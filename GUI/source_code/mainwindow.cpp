@@ -296,7 +296,7 @@ void MainWindow::mergeMsg(){
                                                 ".", tr("Text Files(*.txt)"));
     if(!path.isEmpty()){
         string paths = q2s(path);
-        merge(paths);
+        merge(paths, this);
         showAll(true, msg);
     }
 }
